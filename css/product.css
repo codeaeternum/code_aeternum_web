@@ -1,0 +1,227 @@
+/* Product Page Styles — TG Grabber Pro */
+
+/* Hero */
+.product-hero {
+    padding: 6rem 5% 4rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.product-badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.product-hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-tagline {
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+}
+
+.hero-actions {
+    margin-bottom: 1.5rem;
+}
+
+.hero-actions .cta-button {
+    font-size: 1.05rem;
+    padding: 1rem 2.5rem;
+}
+
+.hero-note {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Promo Screenshot */
+.promo-screenshot {
+    text-align: center;
+    padding: 0 5% 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.promo-screenshot img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 48px rgba(99, 102, 241, 0.2),
+        0 0 0 1px rgba(99, 102, 241, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.promo-screenshot img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 64px rgba(99, 102, 241, 0.3),
+        0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+/* Features */
+.features {
+    padding: 5rem 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* How It Works */
+.how-it-works {
+    padding: 5rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 auto 1.2rem;
+    box-shadow: 0 0 24px var(--primary-glow);
+}
+
+.step h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+
+.step p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Bottom CTA */
+.bottom-cta {
+    text-align: center;
+    padding: 5rem 5%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.bottom-cta h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to bottom, #fff 0%, #bbb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bottom-cta p {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .product-tagline {
+        font-size: 1.05rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-actions .cta-button {
+        font-size: 0.95rem;
+        padding: 0.9rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .bottom-cta h2 {
+        font-size: 1.6rem;
+    }
+}
