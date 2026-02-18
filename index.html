@@ -6,60 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Aeternum | Software for the Future</title>
     <meta name="description"
-        content="Premium browser extensions and productivity utilities designed to streamline your digital workflow.">
+        content="Premium browser extensions and developer tools built to last. Experience efficiency that stands the test of time.">
+    <meta property="og:title" content="Code Aeternum — Software for the Future">
+    <meta property="og:description" content="Premium browser extensions and developer tools built to last.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeaeternum.com">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="logo" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
-            <img src="img/logo.png" alt="Code Aeternum" width="32" height="32" style="border-radius:8px;">
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Code Aeternum" width="32" height="32">
             Code Aeternum
         </a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="#products">Products</a>
+            <a href="#product">Product</a>
             <a href="mailto:codeaeternum@outlook.com">Contact</a>
             <a href="es/index.html" class="lang-switch">🇲🇽 ES</a>
         </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
-        <h1>Software Built to Last<br>Tools Built for Speed.</h1>
-        <p>Premium browser extensions and productivity utilities designed to streamline your digital workflow.
-            Experience the next level of efficiency.</p>
-        <a href="#products" class="cta-button">Explore Products</a>
+        <img src="img/logo.png" alt="" class="hero-logo" width="100" height="100">
+        <div class="hero-badge">Eternal Code, Modern Tools</div>
+        <h1>Software Built to <span class="gradient-text">Stand the Test</span> of Time</h1>
+        <p>We build focused, high-performance browser extensions and developer tools. No bloat, no tracking — just
+            tools that work.</p>
+        <div class="hero-actions">
+            <a href="#product" class="cta-button">Explore Our Work ↓</a>
+            <a href="https://github.com/GalindoAsc" target="_blank" class="cta-button cta-secondary">GitHub →</a>
+        </div>
     </section>
 
-    <section id="products" class="products">
-        <h2 class="section-title">Our Suite</h2>
-        <div class="grid">
-            <!-- TG Media Grabber Pro -->
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>TG Media Grabber Pro</h3>
-                <p>The ultimate browser extension for media management. Bulk download photos, videos, and GIFs with
-                    advanced filtering and gallery visualization.</p>
-                <a href="tg-grabber-pro.html" class="card-link">Learn More &rarr;</a>
-            </div>
+    <!-- Features Marquee -->
+    <div class="features-marquee">
+        <div class="marquee-track">
+            <span class="marquee-item"><span class="icon">🔒</span> Privacy First</span>
+            <span class="marquee-item"><span class="icon">⚡</span> Lightning Fast</span>
+            <span class="marquee-item"><span class="icon">🆓</span> Free & Open</span>
+            <span class="marquee-item"><span class="icon">🎯</span> Single Purpose</span>
+            <span class="marquee-item"><span class="icon">🔧</span> No Dependencies</span>
+            <span class="marquee-item"><span class="icon">🌐</span> Chromium Based</span>
+            <span class="marquee-item"><span class="icon">📦</span> Lightweight</span>
+            <span class="marquee-item"><span class="icon">❤️</span> Community Driven</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="marquee-item"><span class="icon">🔒</span> Privacy First</span>
+            <span class="marquee-item"><span class="icon">⚡</span> Lightning Fast</span>
+            <span class="marquee-item"><span class="icon">🆓</span> Free & Open</span>
+            <span class="marquee-item"><span class="icon">🎯</span> Single Purpose</span>
+            <span class="marquee-item"><span class="icon">🔧</span> No Dependencies</span>
+            <span class="marquee-item"><span class="icon">🌐</span> Chromium Based</span>
+            <span class="marquee-item"><span class="icon">📦</span> Lightweight</span>
+            <span class="marquee-item"><span class="icon">❤️</span> Community Driven</span>
+        </div>
+    </div>
 
-            <!-- Future Product Placeholder 1 -->
-            <div class="card">
-                <div class="card-icon">🔒</div>
-                <h3>Secure Notes (Coming Soon)</h3>
-                <p>End-to-end encrypted notepad for your sensitive data. Access your thoughts securely from any device.
-                </p>
-                <span class="card-link" style="opacity:0.5; cursor: default;">In Development</span>
+    <!-- Featured Product -->
+    <section id="product" class="featured reveal">
+        <div class="featured-inner">
+            <div class="featured-content">
+                <div class="featured-badge">Chrome Extension</div>
+                <h2>TG Media Grabber Pro</h2>
+                <p>The most powerful Telegram Web media downloader. Bulk download photos, videos, GIFs and documents
+                    with one click. Gallery preview, smart filtering, duplicate detection, and organized file
+                    management.</p>
+                <div class="featured-stats">
+                    <div class="stat">
+                        <div class="stat-value">9+</div>
+                        <div class="stat-label">Features</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Free</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Data Collected</div>
+                    </div>
+                </div>
+                <div class="hero-actions" style="justify-content: flex-start;">
+                    <a href="tg-grabber-pro.html" class="cta-button">Learn More →</a>
+                    <a href="#" class="cta-button cta-secondary">Install Free</a>
+                </div>
             </div>
+            <div class="featured-screenshot">
+                <img src="img/tg-grabber-icon.png" alt="TG Media Grabber Pro"
+                    style="max-width: 200px; margin: 0 auto; display: block; border-radius: 28px; animation: float 4s ease-in-out infinite;">
+            </div>
+        </div>
+    </section>
 
-            <!-- Future Product Placeholder 2 -->
-            <div class="card">
-                <div class="card-icon">📊</div>
-                <h3>Data Flow (Coming Soon)</h3>
-                <p>Visual data processing pipelines for the web. Connect APIs and transform JSON data without writing
-                    code.</p>
-                <span class="card-link" style="opacity:0.5; cursor: default;">In Development</span>
+    <!-- Values -->
+    <section class="values reveal">
+        <h2>Built with <span class="gradient-text">Purpose</span></h2>
+        <p>Every tool we ship follows three unbreakable principles.</p>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🛡️</div>
+                <h3>Privacy by Design</h3>
+                <p>Zero data collection, zero analytics, zero trackers. Your data stays on your device. Always.</p>
             </div>
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <h3>Performance Obsessed</h3>
+                <p>Lightweight code, no bloated frameworks. Our extensions load instantly and run without draining
+                    resources.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Single Purpose Focus</h3>
+                <p>Each tool does one thing exceptionally well. No feature creep, no unnecessary permissions. Just
+                    focused utility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="support reveal">
+        <h2>Support <span class="gradient-text">Development</span></h2>
+        <p>Our tools are free and always will be. If you find them useful, consider buying us a coffee!</p>
+        <div class="support-btns">
+            <a href="https://ko-fi.com/codeaeternum" target="_blank" class="support-btn kofi-btn">☕ Buy me a
+                coffee</a>
+            <a href="https://github.com/GalindoAsc" target="_blank" class="support-btn github-btn">⭐ Star on
+                GitHub</a>
         </div>
     </section>
 
@@ -70,6 +144,11 @@
                 <a href="mailto:codeaeternum@outlook.com">Contact</a>
                 <a href="https://x.com/CodeAeternum" target="_blank">𝕏 @CodeAeternum</a>
                 <a href="https://github.com/GalindoAsc" target="_blank">GitHub</a>
+                <a href="https://ko-fi.com/codeaeternum" target="_blank">Ko-fi</a>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <a href="tg-grabber-pro.html">TG Media Grabber Pro</a>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
@@ -82,6 +161,19 @@
             &copy; 2026 Code Aeternum. All rights reserved.
         </div>
     </footer>
+
+    <!-- Scroll Reveal -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>
