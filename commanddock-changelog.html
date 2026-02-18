@@ -48,6 +48,24 @@
     <section class="changelog-content">
         <article class="changelog-release">
             <div class="release-header">
+                <div class="release-badge release-minor">⚙️ Improvements</div>
+                <h2>v1.0.1</h2>
+                <time>February 18, 2026</time>
+            </div>
+            <div class="release-body">
+                <h3>Improvements</h3>
+                <ul>
+                    <li>🖥️ <strong>Multi-Platform Builds</strong> — now available for Windows (NSIS + portable), macOS
+                        (DMG), and Linux (AppImage + deb)</li>
+                    <li>🎨 <strong>Custom App Icon</strong> — new branded icon for all platforms</li>
+                    <li>🔄 <strong>CI/CD Pipeline</strong> — GitHub Actions auto-builds all platforms on tag push</li>
+                    <li>🏷️ <strong>Updated App ID</strong> — <code>com.codeaeternum.commanddock</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="changelog-release">
+            <div class="release-header">
                 <div class="release-badge release-major">🎉 Initial Release</div>
                 <h2>v1.0.0</h2>
                 <time>February 18, 2026</time>
@@ -60,7 +78,8 @@
                     <li>🎯 <strong>One-Click Execution</strong> — run commands directly via Electron's child_process
                     </li>
                     <li>🔧 <strong>Custom Variables</strong> — <code>{{branch}}</code>, <code>{{host}}</code>,
-                        <code>{{user}}</code> with live preview in ConfigPanel</li>
+                        <code>{{user}}</code> with live preview in ConfigPanel
+                    </li>
                     <li>⌨️ <strong>Command Palette</strong> — <code>Ctrl+K</code> fuzzy search across all commands</li>
                     <li>📂 <strong>Smart Workspace</strong> — drag & drop projects, directory browser, manual path
                         entry, re-scan</li>

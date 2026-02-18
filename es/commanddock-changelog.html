@@ -49,6 +49,25 @@
     <section class="changelog-content">
         <article class="changelog-release">
             <div class="release-header">
+                <div class="release-badge release-minor">⚙️ Mejoras</div>
+                <h2>v1.0.1</h2>
+                <time>18 de febrero de 2026</time>
+            </div>
+            <div class="release-body">
+                <h3>Mejoras</h3>
+                <ul>
+                    <li>🖥️ <strong>Compilación Multi-Plataforma</strong> — ahora disponible para Windows (NSIS +
+                        portable), macOS (DMG) y Linux (AppImage + deb)</li>
+                    <li>🎨 <strong>Ícono Personalizado</strong> — nuevo ícono de marca para todas las plataformas</li>
+                    <li>🔄 <strong>Pipeline CI/CD</strong> — GitHub Actions compila automáticamente en todas las
+                        plataformas al crear un tag</li>
+                    <li>🏷️ <strong>App ID Actualizado</strong> — <code>com.codeaeternum.commanddock</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="changelog-release">
+            <div class="release-header">
                 <div class="release-badge release-major">🎉 Lanzamiento Inicial</div>
                 <h2>v1.0.0</h2>
                 <time>18 de febrero de 2026</time>
@@ -61,13 +80,15 @@
                     <li>🎯 <strong>Ejecución con un Clic</strong> — ejecuta comandos directamente vía child_process de
                         Electron</li>
                     <li>🔧 <strong>Variables Personalizadas</strong> — <code>{{branch}}</code>, <code>{{host}}</code>,
-                        <code>{{user}}</code> con vista previa en vivo</li>
+                        <code>{{user}}</code> con vista previa en vivo
+                    </li>
                     <li>⌨️ <strong>Command Palette</strong> — <code>Ctrl+K</code> búsqueda fuzzy entre todos los
                         comandos</li>
                     <li>📂 <strong>Workspace Inteligente</strong> — arrastra carpetas, explora directorios o escribe la
                         ruta manualmente</li>
                     <li>⭐ <strong>Favoritos y Atajos</strong> — marca comandos con estrella, ejecútalos con
-                        <code>Ctrl+1-9</code></li>
+                        <code>Ctrl+1-9</code>
+                    </li>
                     <li>🌐 <strong>Multiidioma</strong> — español e inglés con cambio instantáneo</li>
                     <li>📤 <strong>Exportar / Importar</strong> — respaldo completo de configuración como JSON</li>
                     <li>🛡️ <strong>Modo Dry Run</strong> — previsualiza comandos sin ejecutarlos</li>
