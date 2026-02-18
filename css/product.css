@@ -1,4 +1,5 @@
 /* Product Page Styles — TG Grabber Pro */
+/* Harmonized with Code Aeternum copper/bronze palette */
 
 /* Hero */
 .product-hero {
@@ -14,16 +15,16 @@
 
 .hero-app-icon {
     border-radius: 28px;
-    box-shadow: 0 0 60px rgba(99, 102, 241, 0.3),
-        0 0 120px rgba(168, 85, 247, 0.15);
+    box-shadow: 0 0 60px rgba(201, 149, 107, 0.25),
+        0 0 120px rgba(90, 122, 138, 0.15);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     animation: icon-float 4s ease-in-out infinite;
 }
 
 .hero-app-icon:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 80px rgba(99, 102, 241, 0.45),
-        0 0 160px rgba(168, 85, 247, 0.25);
+    box-shadow: 0 0 80px rgba(201, 149, 107, 0.4),
+        0 0 160px rgba(90, 122, 138, 0.2);
 }
 
 @keyframes icon-float {
@@ -40,9 +41,9 @@
 
 .product-badge {
     display: inline-block;
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: var(--primary);
+    background: rgba(201, 149, 107, 0.12);
+    border: 1px solid rgba(201, 149, 107, 0.25);
+    color: var(--primary-light);
     padding: 0.4rem 1.2rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -52,17 +53,11 @@
 }
 
 .product-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: #fff;
-}
-
-.gradient-text {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .product-tagline {
@@ -99,15 +94,15 @@
 .promo-screenshot img {
     width: 100%;
     border-radius: 16px;
-    box-shadow: 0 8px 48px rgba(99, 102, 241, 0.2),
-        0 0 0 1px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 8px 48px rgba(201, 149, 107, 0.15),
+        0 0 0 1px rgba(201, 149, 107, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .promo-screenshot img:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 64px rgba(99, 102, 241, 0.3),
-        0 0 0 1px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 16px 64px rgba(201, 149, 107, 0.25),
+        0 0 0 1px rgba(201, 149, 107, 0.15);
 }
 
 /* Features */
@@ -133,8 +128,8 @@
 
 .feature-card:hover {
     transform: translateY(-4px);
-    border-color: var(--primary);
-    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+    border-color: rgba(201, 149, 107, 0.3);
+    box-shadow: 0 8px 32px rgba(201, 149, 107, 0.1);
 }
 
 .feature-icon {
@@ -145,6 +140,7 @@
 .feature-card h3 {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
+    color: #fff;
 }
 
 .feature-card p {
@@ -183,6 +179,7 @@
     justify-content: center;
     font-size: 1.3rem;
     font-weight: 700;
+    color: #1a1a1a;
     margin: 0 auto 1.2rem;
     box-shadow: 0 0 24px var(--primary-glow);
 }
@@ -190,6 +187,7 @@
 .step h3 {
     margin-bottom: 0.5rem;
     font-size: 1.15rem;
+    color: #fff;
 }
 
 .step p {
@@ -206,6 +204,14 @@
     margin: 0 auto;
 }
 
+.support-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
 .support-text {
     color: var(--text-muted);
     font-size: 1.05rem;
@@ -216,44 +222,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.support-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.support-btn:hover {
-    transform: translateY(-2px);
-}
-
-.kofi-btn {
-    background: #ff5e5b;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(255, 94, 91, 0.3);
-}
-
-.kofi-btn:hover {
-    box-shadow: 0 0 40px rgba(255, 94, 91, 0.4);
-}
-
-.x-btn {
-    background: var(--bg-card);
-    color: #fff;
-    border: 1px solid var(--border);
-}
-
-.x-btn:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px var(--primary-glow);
+    flex-wrap: nowrap;
 }
 
 /* Bottom CTA */
@@ -265,9 +234,10 @@
 }
 
 .bottom-cta h2 {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 2.2rem;
     margin-bottom: 1rem;
-    background: linear-gradient(to bottom, #fff 0%, #bbb 100%);
+    background: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -306,6 +276,10 @@
     .hero-app-icon {
         width: 80px;
         height: 80px;
+    }
+
+    .support-actions {
+        flex-wrap: wrap;
     }
 }
 
