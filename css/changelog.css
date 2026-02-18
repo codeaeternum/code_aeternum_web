@@ -1,0 +1,198 @@
+/* Changelog Page Styles */
+
+.changelog-hero {
+    padding: 6rem 5% 3rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.changelog-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.changelog-back {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--primary-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.changelog-back:hover {
+    color: #fff;
+}
+
+/* Timeline Content */
+.changelog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 5% 4rem;
+    position: relative;
+}
+
+.changelog-content::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(201, 149, 107, 0.4) 0%, rgba(201, 149, 107, 0.05) 100%);
+}
+
+/* Release Block */
+.changelog-release {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 48px;
+}
+
+.changelog-release::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--gradient);
+    box-shadow: 0 0 12px var(--primary-glow);
+    z-index: 1;
+}
+
+.release-header {
+    margin-bottom: 1.2rem;
+}
+
+.release-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin: 0.4rem 0 0.3rem;
+}
+
+.release-header time {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Release Badges */
+.release-badge {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.release-major {
+    background: rgba(201, 149, 107, 0.12);
+    border: 1px solid rgba(201, 149, 107, 0.25);
+    color: var(--primary-light);
+}
+
+.release-minor {
+    background: rgba(76, 139, 245, 0.1);
+    border: 1px solid rgba(76, 139, 245, 0.2);
+    color: #7bb3f7;
+}
+
+.release-patch {
+    background: rgba(0, 212, 170, 0.08);
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    color: #00d4aa;
+}
+
+/* Release Body */
+.release-body {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    transition: border-color 0.3s;
+}
+
+.release-body:hover {
+    border-color: rgba(201, 149, 107, 0.2);
+}
+
+.release-body h3 {
+    font-size: 0.9rem;
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    margin-top: 0;
+}
+
+.release-body h3:not(:first-child) {
+    margin-top: 1.5rem;
+}
+
+.release-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.release-body li {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.release-body li:last-child {
+    border-bottom: none;
+}
+
+.release-body li strong {
+    color: #e0e0e0;
+}
+
+.release-body code {
+    background: rgba(201, 149, 107, 0.1);
+    color: var(--primary-light);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .changelog-hero h1 {
+        font-size: 2rem;
+    }
+
+    .changelog-content::before {
+        left: 12px;
+    }
+
+    .changelog-release {
+        padding-left: 36px;
+    }
+
+    .changelog-release::before {
+        left: 6px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .release-body {
+        padding: 1.2rem 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .changelog-hero h1 {
+        font-size: 1.6rem;
+    }
+}
