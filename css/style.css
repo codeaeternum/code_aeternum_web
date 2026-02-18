@@ -166,9 +166,9 @@ nav {
 nav a {
     color: var(--text-muted);
     text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 400;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
     transition: color 0.3s;
     position: relative;
 }
