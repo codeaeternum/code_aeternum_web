@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommandDock — Panel de Comandos para Desarrolladores | Code Aeternum</title>
+    <meta name="description"
+        content="Panel contextual de comandos para desarrolladores. Detecta tu proyecto automáticamente y muestra los comandos relevantes. Ejecución en un clic, variables personalizables, atajos de teclado.">
+    <meta name="keywords"
+        content="herramientas para desarrolladores, panel de comandos, electron app, comandos git, gestión de proyectos, terminal, productividad">
+    <meta property="og:title" content="CommandDock — Panel de Comandos para Desarrolladores">
+    <meta property="og:description"
+        content="Detecta tu stack automáticamente y ejecuta comandos con un clic. App de escritorio gratuita.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeaeternum.com/es/commanddock">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@CodeAeternum">
+    <meta name="twitter:title" content="CommandDock">
+    <meta name="twitter:description"
+        content="Panel contextual de comandos para devs. Detecta tu stack, ejecución con un clic. Gratis.">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
+    <link rel="stylesheet" href="../css/product.css?v=2.0">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="../img/logo-sin-nombre32x32.png" alt="Code Aeternum" width="32" height="32">
+            Code Aeternum
+        </a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#products">Productos</a>
+            <a href="mailto:codeaeternum@outlook.com">Contacto</a>
+            <a href="https://x.com/CodeAeternum" target="_blank" aria-label="X (Twitter)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+            </a>
+            <a href="https://github.com/codeaeternum" target="_blank" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </a>
+            <a href="../commanddock.html" class="lang-switch">🇺🇸 EN</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="product-hero">
+        <div class="hero-icon-wrap">
+            <img src="../img/commanddock-icon.png" alt="CommandDock" class="hero-app-icon" width="120" height="120">
+        </div>
+        <div class="product-badge">App de Escritorio Gratuita</div>
+        <h1>Command<span class="gradient-text">Dock</span></h1>
+        <p class="product-tagline">El panel contextual de comandos para desarrolladores. Detecta tu proyecto, muestra
+            los comandos correctos y los ejecuta — todo con un clic.</p>
+        <div class="hero-actions">
+            <a href="https://github.com/codeaeternum/commanddock/releases" target="_blank" class="cta-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                    style="vertical-align: middle; margin-right: 8px;">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                </svg>
+                Descargar para Windows
+            </a>
+            <a href="https://github.com/codeaeternum/commanddock" target="_blank" class="cta-button cta-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                    style="vertical-align: middle; margin-right: 8px;">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                Ver en GitHub
+            </a>
+        </div>
+        <p class="hero-note">Electron + React · Windows, macOS, Linux</p>
+    </section>
+
+    <!-- Promo Screenshot -->
+    <section class="promo-screenshot">
+        <img src="../img/commanddock-screenshot.png"
+            alt="CommandDock en acción — panel de comandos con grupos Git, Node.js y Tailscale" loading="lazy">
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2 class="section-title">Repleto de Funciones</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Auto-Detección</h3>
+                <p>Escanea tu workspace y detecta Git, Node.js, Docker, Python, Rust, Go, Java, Flutter y más de 20
+                    stacks automáticamente.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Ejecución con un Clic</h3>
+                <p>Ejecuta cualquier comando directo desde el panel. Ejecución real vía child_process de Electron — sin
+                    copiar y pegar.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Variables Personalizables</h3>
+                <p>Define {{branch}}, {{host}}, {{user}} y más. Las variables se inyectan en los comandos con vista
+                    previa en vivo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⌨️</div>
+                <h3>Paleta de Comandos</h3>
+                <p>Presiona Ctrl+K para buscar entre todos los comandos. Encuentra y ejecuta cualquier cosa en menos de
+                    un segundo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📂</div>
+                <h3>Workspace Inteligente</h3>
+                <p>Arrastra y suelta carpetas de proyectos, navega directorios o ingresa rutas manualmente. Re-escanea
+                    para detectar nuevos proyectos al instante.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Favoritos y Atajos</h3>
+                <p>Marca tus comandos más usados como favoritos. Ejecútalos al instante con Ctrl+1 hasta Ctrl+9.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Multilingüe</h3>
+                <p>Soporte nativo en español e inglés con cambio instantáneo de idioma. Toda la interfaz completamente
+                    traducida.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📤</div>
+                <h3>Exportar / Importar</h3>
+                <p>Respalda toda tu configuración — variables, favoritos, comandos custom — como un archivo JSON.
+                    Restaura en cualquier máquina.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Modo Dry Run</h3>
+                <p>Previsualiza comandos sin ejecutarlos. Ve exactamente qué se ejecutaría — perfecto para operaciones
+                    peligrosas como git reset.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">Cómo Funciona</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Instalar</h3>
+                <p>Descarga CommandDock y ejecuta el instalador. Funciona al instante — cero configuración necesaria.
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Abrir un Proyecto</h3>
+                <p>Apunta CommandDock a tu workspace. Escanea el directorio y auto-detecta cada proyecto y su stack.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Ejecutar Comandos</h3>
+                <p>Haz clic en <strong>▶ Run</strong> en cualquier comando. El output se muestra en la terminal
+                    integrada en tiempo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback -->
+    <section class="support-section">
+        <h2 class="section-title">¿Tienes Ideas?</h2>
+        <p class="support-text">¡Nos encantaría escuchar tu feedback! Reporta bugs, sugiere funciones o simplemente
+            salúdanos.</p>
+        <div class="support-actions">
+            <a href="mailto:codeaeternum@outlook.com" class="support-btn github-btn">
+                💬 Enviar Feedback
+            </a>
+            <a href="https://x.com/CodeAeternum" target="_blank" class="support-btn x-btn">
+                𝕏 Síguenos
+            </a>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="support-section">
+        <h2 class="section-title">Apoya el Desarrollo</h2>
+        <p class="support-text">CommandDock es completamente gratuito y open source. Si lo encuentras útil, ¡considera
+            invitarnos un café!</p>
+        <div class="support-actions">
+            <a href="https://ko-fi.com/codeaeternum" target="_blank" class="support-btn kofi-btn">
+                ☕ Invítame un café
+            </a>
+            <a href="https://github.com/codeaeternum/commanddock" target="_blank" class="support-btn github-btn">
+                ⭐ Star en GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bottom-cta">
+        <img src="../img/commanddock-icon.png" alt="CommandDock" width="64" height="64"
+            style="border-radius:16px; margin-bottom:1.5rem;">
+        <h2>¿Listo para potenciar tu flujo de trabajo?</h2>
+        <p>Únete a los desarrolladores que confían en CommandDock para sus tareas diarias de línea de comandos.</p>
+        <div class="hero-actions" style="justify-content: center;">
+            <a href="https://github.com/codeaeternum/commanddock/releases" target="_blank" class="cta-button">Descargar
+                Gratis</a>
+            <a href="https://github.com/codeaeternum/commanddock" target="_blank"
+                class="cta-button cta-secondary">GitHub →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Code Aeternum</h4>
+                <a href="index.html">Inicio</a>
+                <a href="mailto:codeaeternum@outlook.com">Soporte</a>
+                <a href="https://x.com/CodeAeternum" target="_blank">𝕏 @CodeAeternum</a>
+            </div>
+            <div class="footer-col">
+                <h4>Productos</h4>
+                <a href="tg-grabber-pro.html">TG Media Grabber Pro</a>
+                <a href="#">CommandDock</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="../terms.html">Términos de Servicio</a>
+                <a href="../privacy.html">Política de Privacidad</a>
+                <a href="../refund-policy.html">Política de Reembolso</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Code Aeternum. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>
