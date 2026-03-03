@@ -11,11 +11,16 @@
     <meta property="og:description" content="Premium browser extensions and developer tools built to last.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codeaeternum.com">
+    <meta property="og:image" content="https://codeaeternum.com/img/logo-sin-nombre32x32.png">
+    <link rel="canonical" href="https://codeaeternum.com/">
     <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
 
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header>
         <a href="index.html" class="logo">
             <img src="img/logo-sin-nombre32x32.png" alt="Code Aeternum" width="32" height="32">
@@ -41,6 +46,7 @@
         </nav>
     </header>
 
+    <main id="main">
     <!-- Hero -->
     <section class="hero">
 
@@ -49,7 +55,7 @@
         <p>We build focused, high-performance browser extensions and developer tools. No bloat, no tracking — just
             tools that work.</p>
         <div class="hero-actions">
-            <a href="#product" class="cta-button">Explore Our Work ↓</a>
+            <a href="#products" class="cta-button">Explore Our Work ↓</a>
             <a href="https://github.com/codeaeternum" target="_blank" class="cta-button cta-secondary">GitHub →</a>
         </div>
     </section>
@@ -184,6 +190,7 @@
         </div>
     </section>
 
+    </main>
     <footer>
         <div class="footer-content">
             <div class="footer-col">
@@ -210,18 +217,7 @@
         </div>
     </footer>
 
-    <!-- Scroll Reveal -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <script src="js/reveal.js"></script>
 </body>
 
 </html>

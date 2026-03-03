@@ -225,6 +225,13 @@
     flex-wrap: nowrap;
 }
 
+/* Coming soon CTA (non-link, visual only) */
+.cta-coming-soon {
+    opacity: 0.75;
+    cursor: default;
+    pointer-events: none;
+}
+
 /* Downloads Section */
 .downloads-section {
     text-align: center;

@@ -40,6 +40,26 @@ body {
     overflow-x: hidden;
 }
 
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -3rem;
+    left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: #1a1a1a;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    z-index: 9999;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0.5rem;
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
 /* ─── Utility ─── */
 .gradient-text {
     background: var(--gradient);
@@ -190,6 +210,14 @@ nav a::after {
 
 nav a:hover::after {
     width: 100%;
+}
+
+nav a:focus-visible,
+.cta-button:focus-visible,
+.support-btn:focus-visible,
+.footer-col a:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
 }
 
 .lang-switch {
@@ -511,6 +539,13 @@ nav a[aria-label]::after {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .marquée-track,
+    .marquee-track {
+        animation: none;
+    }
+}
+
 /* ─── Values / About ─── */
 .values {
     padding: 6rem 5%;
@@ -642,6 +677,17 @@ nav a[aria-label]::after {
 }
 
 .github-btn:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(90, 122, 138, 0.2);
+}
+
+.x-btn {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.x-btn:hover {
     border-color: var(--accent);
     box-shadow: 0 0 20px rgba(90, 122, 138, 0.2);
 }
