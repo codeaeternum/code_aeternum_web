@@ -56,17 +56,31 @@
         <!-- v4.2 -->
         <article class="changelog-release">
             <div class="release-header">
-                <div class="release-badge release-minor">⚙️ Mejoras</div>
+                <div class="release-badge release-minor">⚙️ Mejoras y correcciones</div>
                 <h2>v4.2</h2>
-                <time>7 de febrero de 2026</time>
+                <time>Marzo 2025</time>
             </div>
             <div class="release-body">
                 <h3>Agregado</h3>
                 <ul>
-                    <li>⚙️ <strong>Tamaño máximo de archivo</strong> — omite archivos por encima de un umbral
-                        configurable</li>
-                    <li>🔧 <strong>Recuperación de sidebar</strong> — auto-recuperación de fallos del DOM</li>
-                    <li>🛟 <strong>Bailout del visor</strong> — fallback elegante cuando el visor de medios falla</li>
+                    <li>⌨️ Atajos de teclado en el popup (Ctrl+Shift+D, Ctrl+Shift+G)</li>
+                    <li>💬 Cerrar modal de feedback con Escape</li>
+                    <li>📖 Sección "For developers" en README</li>
+                </ul>
+                <h3>Cambios</h3>
+                <ul>
+                    <li>🔒 <strong>Seguridad:</strong> postMessage valida <code>event.origin</code></li>
+                    <li>💾 Tipos de media seleccionados persistidos en el popup</li>
+                    <li>♿ <strong>Accesibilidad:</strong> ARIA en barra de progreso, toggles y modal de feedback</li>
+                    <li>🎨 Z-index reducido en la UI inyectada</li>
+                    <li>📱 Toast y galería responsivos</li>
+                    <li>🌐 Mensajes unificados a inglés</li>
+                </ul>
+                <h3>Corregido</h3>
+                <ul>
+                    <li>🐛 Variable CSS <code>--bg-secondary</code> en popup</li>
+                    <li>♿ Toggles como <code>&lt;button&gt;</code></li>
+                    <li>🔄 <strong>Descargas duplicadas</strong> — el mismo archivo ya no se descarga dos veces (msgId + video stem)</li>
                 </ul>
             </div>
         </article>
