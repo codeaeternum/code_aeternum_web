@@ -14,6 +14,10 @@
     --accent-light: #7ba3b5;
     --text-main: #e8e6e3;
     --text-muted: #8b9098;
+    --text-heading: #fff;
+    --text-body: #e8e6e3;
+    --surface-subtle: rgba(255, 255, 255, 0.02);
+    --code-bg: rgba(255, 255, 255, 0.1);
     --border: #1e2228;
     --border-hover: #2a3040;
     --gradient: linear-gradient(135deg, #c9956b 0%, #b87333 50%, #ddb892 100%);
@@ -38,6 +42,8 @@ body {
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 /* Skip link for accessibility — off-screen until focused, no URL visible */
@@ -70,6 +76,16 @@ body {
 
 .accent-text {
     color: var(--accent-light);
+}
+
+.link-primary {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.link-primary:hover {
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 /* ─── Animations ─── */
@@ -130,10 +146,31 @@ body {
     transform: translateY(0);
 }
 
+/* No-JS fallback: show .reveal content if script fails or is disabled */
+.no-js .reveal,
+html.no-script .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* ─── Text overflow / robustness (harden) ─── */
+.hero h1,
+.featured-content h2,
+.value-card h3,
+.feature-card h3 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.featured-content p,
+.value-card p {
+    overflow-wrap: break-word;
+}
+
 /* ─── Header ─── */
 header {
     position: fixed;
-    top: 1.5rem;
+    top: max(1.5rem, env(safe-area-inset-top));
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -218,6 +255,13 @@ nav a:focus-visible,
 .footer-col a:focus-visible {
     outline: 2px solid var(--primary-light);
     outline-offset: 2px;
+}
+
+/* Touch: tap highlight and minimum tap target (adapt) */
+a,
+button {
+    -webkit-tap-highlight-color: rgba(201, 149, 107, 0.2);
+    tap-highlight-color: rgba(201, 149, 107, 0.2);
 }
 
 .lang-switch {
@@ -353,7 +397,9 @@ nav a[aria-label]::after {
 .cta-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    min-height: 44px;
     padding: 0.9rem 2.2rem;
     background: var(--gradient);
     color: #1a1a1a;
@@ -389,6 +435,14 @@ nav a[aria-label]::after {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-actions--start {
+    justify-content: flex-start;
+}
+
+.hero-actions--center {
+    justify-content: center;
 }
 
 /* ─── Featured Product ─── */
@@ -513,6 +567,7 @@ nav a[aria-label]::after {
     gap: 3rem;
     animation: scroll-x 30s linear infinite;
     width: max-content;
+    will-change: transform;
 }
 
 .marquee-item {
@@ -543,6 +598,7 @@ nav a[aria-label]::after {
     .marquée-track,
     .marquee-track {
         animation: none;
+        will-change: auto;
     }
 }
 
@@ -647,7 +703,9 @@ nav a[aria-label]::after {
 .support-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
+    min-height: 44px;
     padding: 0.75rem 1.6rem;
     border-radius: 50px;
     text-decoration: none;
@@ -696,6 +754,7 @@ nav a[aria-label]::after {
 footer {
     border-top: 1px solid var(--border);
     padding: 4rem 5%;
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
     margin-top: 2rem;
     background: var(--bg-card);
 }
@@ -751,7 +810,7 @@ footer {
 @media (max-width: 768px) {
     header {
         position: sticky;
-        top: 0;
+        top: env(safe-area-inset-top, 0);
         left: 0;
         transform: none;
         width: 100%;
@@ -768,12 +827,18 @@ footer {
     nav {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 0.25rem;
     }
 
     nav a {
-        margin-left: 0.8rem;
-        margin-right: 0.8rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         font-size: 0.85rem;
+        min-height: 44px;
+        padding: 0.5rem 0.25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero {
@@ -813,6 +878,18 @@ footer {
         text-align: center;
         justify-self: center;
     }
+
+    .footer-col a {
+        min-height: 44px;
+        padding: 0.35rem 0;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .support-btns {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -826,7 +903,12 @@ footer {
 
     .hero-actions {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+    }
+
+    .hero-actions .cta-button {
+        width: 100%;
+        min-height: 48px;
     }
 }
 
@@ -834,7 +916,8 @@ footer {
 .legal-content {
     max-width: 800px;
     margin: 4rem auto;
-    padding: 0 5%;
+    padding-left: max(5%, env(safe-area-inset-left));
+    padding-right: max(5%, env(safe-area-inset-right));
 }
 
 .legal-content h1 {

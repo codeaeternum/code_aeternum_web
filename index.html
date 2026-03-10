@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,10 @@
     <meta property="og:url" content="https://codeaeternum.com">
     <meta property="og:image" content="https://codeaeternum.com/img/logo-sin-nombre32x32.png">
     <link rel="canonical" href="https://codeaeternum.com/">
+    <link rel="alternate" hreflang="en" href="https://codeaeternum.com/">
+    <link rel="alternate" hreflang="es" href="https://codeaeternum.com/es/">
+    <link rel="alternate" hreflang="x-default" href="https://codeaeternum.com/">
+    <link rel="preload" href="img/logo-sin-nombre32x32.png" as="image">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +24,11 @@
 </head>
 
 <body>
+    <script>document.documentElement.classList.remove('no-js');</script>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
         <a href="index.html" class="logo">
-            <img src="img/logo-sin-nombre32x32.png" alt="Code Aeternum" width="32" height="32">
+            <img src="img/logo-sin-nombre32x32.png" alt="Code Aeternum" width="32" height="32" fetchpriority="high" decoding="async">
             Code Aeternum
         </a>
         <nav>
@@ -55,7 +60,7 @@
         <p>We build focused, high-performance browser extensions and developer tools. No bloat, no tracking — just
             tools that work.</p>
         <div class="hero-actions">
-            <a href="#products" class="cta-button">Explore Our Work ↓</a>
+            <a href="#products" class="cta-button">See our products ↓</a>
             <a href="https://github.com/codeaeternum" target="_blank" class="cta-button cta-secondary">GitHub →</a>
         </div>
     </section>
@@ -106,13 +111,13 @@
                         <div class="stat-label">Data Collected</div>
                     </div>
                 </div>
-                <div class="hero-actions" style="justify-content: flex-start;">
+                <div class="hero-actions hero-actions--start">
                     <a href="tg-grabber-pro.html" class="cta-button">Learn More →</a>
                     <a href="https://chromewebstore.google.com/detail/tg-media-grabber-pro/opbopilodjdiblbohlkffmmgijafcigf" target="_blank" rel="noopener noreferrer" class="cta-button cta-secondary">Chrome Web Store</a>
                 </div>
             </div>
             <div class="featured-screenshot">
-                <img src="img/tg-grabber-icon.png" alt="TG Media Grabber Pro">
+                <img src="img/tg-grabber-icon.png" alt="TG Media Grabber Pro" width="120" height="120" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -140,14 +145,14 @@
                         <div class="stat-label">Projects</div>
                     </div>
                 </div>
-                <div class="hero-actions" style="justify-content: flex-start;">
+                <div class="hero-actions hero-actions--start">
                     <a href="commanddock.html" class="cta-button">Learn More →</a>
                     <a href="https://github.com/codeaeternum/commanddock" target="_blank"
                         class="cta-button cta-secondary">GitHub →</a>
                 </div>
             </div>
             <div class="featured-screenshot">
-                <img src="img/commanddock-icon.png" alt="CommandDock">
+                <img src="img/commanddock-icon.png" alt="CommandDock" width="120" height="120" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -216,7 +221,7 @@
         </div>
     </footer>
 
-    <script src="js/reveal.js"></script>
+    <script src="js/reveal.js" defer></script>
 </body>
 
 </html>

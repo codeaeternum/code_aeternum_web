@@ -97,6 +97,27 @@ code_aeternum_web/
 - **Documentación:** `README.md` en la raíz con descripción, estructura, cómo correr en local y referencias a GEMINI.md y AUDITORIA_PROYECTO.md.
 - **SEO:** En todas las páginas: `<link rel="canonical" href="https://codeaeternum.com/...">` y `<meta property="og:image" content="https://codeaeternum.com/img/logo-sin-nombre32x32.png">`. Para mejores previsualizaciones en redes se puede añadir luego una imagen dedicada (p. ej. 1200×630) en `img/og-image.png` y actualizar la URL.
 - **Script reveal:** Extraído a `js/reveal.js`; referenciado en `index.html` y `es/index.html` (`../js/reveal.js` desde `es/`).
+- **Hardening (/harden):**
+  - **reveal.js:** Ejecución en `DOMContentLoaded`, comprobación de `IntersectionObserver`, iteración segura; si no hay IntersectionObserver se aplica `.visible` a todos los `.reveal`.
+  - **Fallback sin JS:** En `index.html` y `es/index.html`, `<html class="no-js">` y script que quita la clase al cargar; en `style.css`, `.no-js .reveal` y `html.no-script .reveal` muestran el contenido sin animación.
+  - **i18n:** En todas las páginas con versión EN y ES se añadieron `<link rel="alternate" hreflang="en">`, `hreflang="es"` y `hreflang="x-default"` (home, tg-grabber-pro, commanddock, changelogs de ambos).
+  - **Desbordamiento de texto:** En `style.css`, `overflow-wrap: break-word` / `word-break: break-word` en títulos de hero, featured, value-card y feature-card; en `product.css`, en `.product-tagline`, `.product-hero h1`, y `overflow-x: auto` en `.code-inline` y `pre`.
+- **Optimización (/optimize):**
+  - **LCP:** En `index.html` y `es/index.html`, `rel="preload"` del logo (`img/logo-sin-nombre32x32.png`) y `fetchpriority="high"` en el `<img>` del logo; en páginas de producto, `fetchpriority="high"` en el icono del hero.
+  - **Imágenes:** Todas las imágenes con `decoding="async"`; las below-the-fold (featured en home, screenshots, iconos del footer) con `loading="lazy"`; dimensiones explícitas `width`/`height` en iconos (32, 64, 120) y en las imágenes de featured del home (120×120) para evitar CLS.
+  - **Scripts:** `reveal.js` cargado con `defer` en index y es/index.
+  - **Animaciones:** En `style.css`, `will-change: transform` en `.marquee-track` para capa GPU; en `@media (prefers-reduced-motion: reduce)` se desactiva la animación y `will-change: auto`.
+- **Adaptación (/adapt):**
+  - **Safe area:** `body` con `padding-left`/`padding-right: env(safe-area-inset-left/right)`; `footer` con `padding-bottom: calc(4rem + env(safe-area-inset-bottom))`; `header` con `top: max(1.5rem, env(safe-area-inset-top))`; `.legal-content` con padding horizontal usando `max(5%, env(safe-area-inset-*))`.
+  - **Touch targets:** `.cta-button`, `.support-btn` con `min-height: 44px`; en `@media (max-width: 768px)` los `nav a` y `.footer-col a` con `min-height: 44px`, `display: inline-flex`, `align-items: center` y padding adecuado; en 480px los `.hero-actions .cta-button` a ancho completo y `min-height: 48px`; en product.css lo mismo para `.product-hero .hero-actions` en 480px.
+  - **Tap highlight:** `a, button` con `-webkit-tap-highlight-color` y `tap-highlight-color` (tono primary suave) para feedback táctil.
+  - **Responsive:** En 768px, `.support-btns` con `flex-wrap: wrap`; en 480px botones CTA en columna y a ancho completo; `.promo-screenshot` con padding horizontal con safe area en 480px (product.css).
+- **Claridad (/clarify):**
+  - **Footer:** Enlace mailto unificado como "Contact" / "Contacto" en todas las páginas (antes "Support"/"Soporte" en productos y changelogs).
+  - **Hero notes (TG Grabber):** "Compatible with: Telegram Web (K & A) · Chrome, Edge, Brave" (EN) y equivalente en ES; deja claro requisitos sin tecnicismos.
+  - **Manual install:** Título "Manual install (without the Store)" / "Instalación manual (sin la Store)"; párrafo con lead "Prefer to install without the Chrome Web Store?" / "¿Prefieres no usar la Chrome Web Store?" y pasos con "turn on Developer mode" / "Activar modo desarrollador", "select the extracted folder" / "selecciona la carpeta extraída".
+  - **How it works (paso 1):** "No setup required — it works as soon as you install" (EN); "No hace falta configurar nada — funciona en cuanto lo instalas" (ES).
+  - **CTAs:** Home EN "See our products ↓", ES "Ver productos ↓" y "Ver más →" en lugar de "Saber más →"; ES soporte "Dar estrella en GitHub" en lugar de "Star en GitHub".
 
 ## 7. Mejoras pendientes (referencia)
 

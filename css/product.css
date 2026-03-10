@@ -66,6 +66,19 @@
     max-width: 600px;
     margin: 0 auto 2.5rem;
     line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+/* Overflow robustness: product hero title and code blocks */
+.product-hero h1 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.code-inline,
+pre {
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 .hero-actions {
@@ -315,12 +328,59 @@
     opacity: 0.7;
 }
 
+/* Manual install section (sistema de diseño) */
+.manual-install {
+    padding: 4rem 5%;
+    background: var(--surface-subtle);
+}
+
+.manual-install-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.manual-install .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--text-heading);
+}
+
+.manual-install-text {
+    text-align: center;
+    color: var(--text-body);
+    margin-bottom: 1.5rem;
+}
+
+.manual-install-text a {
+    color: var(--primary);
+}
+
+.code-inline {
+    background: var(--code-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Icon inside CTA (evitar inline) */
+.cta-button svg,
+.cta-secondary svg {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 /* Bottom CTA */
 .bottom-cta {
     text-align: center;
     padding: 5rem 5%;
     max-width: 700px;
     margin: 0 auto;
+}
+
+.bottom-cta img {
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
 }
 
 .bottom-cta h2 {
@@ -382,11 +442,26 @@
         font-size: 1.8rem;
     }
 
+    .product-hero .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-hero .hero-actions .cta-button {
+        width: 100%;
+        min-height: 48px;
+    }
+
     .bottom-cta h2 {
         font-size: 1.6rem;
     }
 
     .downloads-grid {
         grid-template-columns: 1fr;
+    }
+
+    .promo-screenshot {
+        padding-left: max(5%, env(safe-area-inset-left));
+        padding-right: max(5%, env(safe-area-inset-right));
     }
 }
