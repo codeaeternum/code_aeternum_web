@@ -123,6 +123,7 @@ pre {
     padding: 5rem 5%;
     max-width: 1100px;
     margin: 0 auto;
+    scroll-margin-top: 7rem;
 }
 
 .features-grid {
@@ -167,6 +168,7 @@ pre {
     padding: 5rem 5%;
     max-width: 900px;
     margin: 0 auto;
+    scroll-margin-top: 7rem;
 }
 
 .steps {
