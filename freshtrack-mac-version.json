@@ -1,1 +1,5 @@
-{"version":"1.3","minMacOS":"14.0","note":"Corrección de entregadas en ajuste final, sugerencia de línea al registrar pagos, cierre del día y buscador de actualizaciones."}
+{
+  "version": "1.4",
+  "minMacOS": "14.0",
+  "note": "Lenguaje de negocio unificado y puerta única «Corregir algo de esta orden…» + «Anular o corregir…» en facturas."
+}
