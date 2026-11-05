@@ -1,5 +1,5 @@
 {
-  "version": "1.5",
+  "version": "1.6",
   "minMacOS": "14.0",
-  "note": "Cola «Por ajustar» contraída por defecto, aplicación de saldos a favor a facturas abiertas y navegación Pagos↔Facturas."
+  "note": "Panel: tarjetas del mismo tamaño por fila. Brain: «Productos del catálogo» para desactivar productos no-hierba sin perder historial."
 }
