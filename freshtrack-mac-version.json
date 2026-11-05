@@ -1,5 +1,5 @@
 {
-  "version": "1.4",
+  "version": "1.5",
   "minMacOS": "14.0",
-  "note": "Lenguaje de negocio unificado y puerta única «Corregir algo de esta orden…» + «Anular o corregir…» en facturas."
+  "note": "Cola «Por ajustar» contraída por defecto, aplicación de saldos a favor a facturas abiertas y navegación Pagos↔Facturas."
 }
