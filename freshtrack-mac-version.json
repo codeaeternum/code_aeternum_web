@@ -1,5 +1,7 @@
 {
-  "version": "1.7",
+  "version": "1.8",
   "minMacOS": "14.0",
-  "note": "Brain: sección «Precios / money left» con proyección semanal por cliente y alertas; buzón muestra unidad, fuente y fecha de cada lista."
+  "note": "Brain: sección «Precios / money left» con proyección semanal por cliente y alertas; buzón muestra unidad, fuente y fecha de cada lista.",
+  "downloadUrl": null,
+  "releaseNotes": "Sugerencias de precio por producto en Insights y aprobación masiva confiable del buzón Brain."
 }
