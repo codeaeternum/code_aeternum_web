@@ -1,5 +1,5 @@
 {
-  "version": "1.6",
+  "version": "1.7",
   "minMacOS": "14.0",
-  "note": "Panel: tarjetas del mismo tamaño por fila. Brain: «Productos del catálogo» para desactivar productos no-hierba sin perder historial."
+  "note": "Brain: sección «Precios / money left» con proyección semanal por cliente y alertas; buzón muestra unidad, fuente y fecha de cada lista."
 }
