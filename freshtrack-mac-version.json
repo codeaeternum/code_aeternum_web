@@ -1,6 +1,6 @@
 {
-  "version": "1.8",
+  "version": "1.9",
   "minMacOS": "14.0",
-  "note": "Precios sugeridos por producto en Insights y «Aprobar confiables» en el buzón Brain.",
+  "note": "«Sugerido mercado» junto al precio al capturar partidas, contador de filas confiables en el buzón Brain y aviso si una captura manual desvía mucho del mercado.",
   "downloadUrl": null
 }
