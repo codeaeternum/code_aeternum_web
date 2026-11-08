@@ -1,6 +1,6 @@
 {
-  "version": "1.10",
+  "version": "1.11",
   "minMacOS": "14.0",
-  "note": "Remisiones solo env\u00eda las pendientes, vencidas separadas por moneda, cobro desde orden admite sobrepago a cuenta y correcciones de la auditor\u00eda profunda.",
+  "note": "Inglés ya no deja frases en español en contadores y etiquetas; el buzón del brain acepta filas sin producto; share extension ya no pierde texto en silencio.",
   "downloadUrl": null
 }
