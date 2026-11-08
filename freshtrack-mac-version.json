@@ -1,6 +1,6 @@
 {
-  "version": "1.9",
+  "version": "1.10",
   "minMacOS": "14.0",
-  "note": "«Sugerido mercado» junto al precio al capturar partidas, contador de filas confiables en el buzón Brain y aviso si una captura manual desvía mucho del mercado.",
+  "note": "Remisiones solo env\u00eda las pendientes, vencidas separadas por moneda, cobro desde orden admite sobrepago a cuenta y correcciones de la auditor\u00eda profunda.",
   "downloadUrl": null
 }
