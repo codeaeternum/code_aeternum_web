@@ -1,6 +1,6 @@
 {
-  "version": "1.11",
+  "version": "1.12",
   "minMacOS": "14.0",
-  "note": "Inglés ya no deja frases en español en contadores y etiquetas; el buzón del brain acepta filas sin producto; share extension ya no pierde texto en silencio.",
+  "note": "Filas de listas ya no cambian de diseño con nombres largos; 45 traducciones nuevas al inglés; altas de productos en Mac ya avisan al brain para revivir entradas pendientes.",
   "downloadUrl": null
 }
