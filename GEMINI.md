@@ -6,12 +6,15 @@ Documento de contexto del proyecto para mantener consistencia en futuras sesione
 
 ## 1. Qué es el proyecto
 
-- **Sitio web estático** de **Code Aeternum**: marca de software (extensiones de navegador y herramientas de desarrollo).
-- **Productos principales:**
+- **Sitio web estático** de **Code Aeternum**: marca de software (extensiones de navegador, apps de escritorio/Mac y herramientas de desarrollo).
+- **Productos:**
   - **TG Media Grabber Pro**: extensión Chrome para descargar medios de Telegram Web (fotos, videos, GIFs) en bulk.
   - **CommandDock**: aplicación de escritorio (Electron) panel de comandos contextual para desarrolladores.
-- **Despliegue:** GitHub Pages. Dominio custom: `codeaeternum.com` (archivo `CNAME`).
-- **Sin backend:** Solo HTML, CSS y un pequeño script inline (IntersectionObserver para scroll reveal). Contacto vía `mailto:`, soporte/donaciones vía Ko-fi, GitHub, X (Twitter).
+  - **Vunari**: herramienta de productividad/escritorio (`vunari.html`).
+  - **FreshTrack**: app macOS (`freshtrack.html`); el manifiesto de actualización es `freshtrack-mac-version.json` (ver `RELEASES.md`).
+  - **Blackjack & Poker Lab**: lab/simulador; solo páginas legales y soporte bajo `blackjack-poker-lab/` (sin landing de producto aún).
+- **Despliegue:** push a `main` → GitHub Pages (build estático; `.nojekyll` incluido). Dominio custom: `codeaeternum.com` (archivo `CNAME`), detrás de Cloudflare.
+- **Sin backend:** Solo HTML, CSS y `js/reveal.js` (IntersectionObserver para scroll reveal). Contacto vía `mailto:soporte@codeaeternum.com`, soporte/donaciones vía Ko-fi, GitHub, X (Twitter). Binarios de apps distribuidos por **GitHub Releases** (nunca commiteados al repo).
 
 ---
 
@@ -20,30 +23,44 @@ Documento de contexto del proyecto para mantener consistencia en futuras sesione
 ```
 code_aeternum_web/
 ├── index.html              # Home EN
+├── vunari.html             # Página producto Vunari (EN)
 ├── tg-grabber-pro.html     # Página producto TG Grabber Pro (EN)
 ├── tg-grabber-pro-changelog.html
 ├── commanddock.html
 ├── commanddock-changelog.html
+├── freshtrack.html         # Página producto FreshTrack (solo EN)
+├── freshtrack-privacy.html # Privacidad FreshTrack (EN+ES embebido)
 ├── terms.html
 ├── privacy.html
 ├── refund-policy.html
-├── es/                     # Versión en español (espejo de páginas)
+├── 404.html
+├── es/                     # Versión en español (espejo parcial de páginas)
 │   ├── index.html
+│   ├── vunari.html
 │   ├── tg-grabber-pro.html
 │   ├── tg-grabber-pro-changelog.html
 │   ├── commanddock.html
 │   └── commanddock-changelog.html
+├── blackjack-poker-lab/    # Legal/soporte del producto (privacy/, terms/, support/)
 ├── css/
 │   ├── style.css           # Sistema global: variables, header, hero, footer, legal, responsive, skip-link, focus-visible, prefers-reduced-motion
 │   ├── product.css         # Páginas de producto (hero, features, steps, downloads, CTA)
 │   └── changelog.css       # Timeline y estilos de changelog
 ├── js/
 │   └── reveal.js           # Scroll reveal (IntersectionObserver) para .reveal
-├── img/                    # Logo, favicon, iconos de producto, screenshots
-├── downloads/              # ZIPs (ej. tg-media-grabber-pro.zip)
+├── img/                    # Favicon, iconos de producto, screenshots, og-image, apple-touch-icon, icon-192/512
+├── downloads/              # Vacía en git: binarios (*.exe/*.dmg/*.zip) ignorados → van a GitHub Releases
+├── .github/workflows/ci.yml  # CI: html-validate + chequeo de enlaces internos (linkinator)
+├── docs/audits/            # Snapshots históricos de auditorías (superseded por PLAN_MEJORAS.md)
+├── site.webmanifest        # Manifest PWA (iconos, theme_color)
+├── sitemap.xml
+├── robots.txt
+├── freshtrack-mac-version.json  # Manifiesto de actualización de FreshTrack (version, downloadUrl)
 ├── CNAME                   # codeaeternum.com para GitHub Pages
+├── .nojekyll               # Desactiva Jekyll en GitHub Pages
 ├── README.md               # Descripción, estructura, desarrollo local
-├── AUDITORIA_PROYECTO.md   # Auditoría detallada (enlaces, a11y, SEO, mantenibilidad)
+├── PLAN_MEJORAS.md         # Plan maestro de mejoras (estado actual)
+├── RELEASES.md             # Checklist de releases del sitio y de apps
 └── GEMINI.md               # Este archivo (contexto para IA/referencia)
 ```
 
@@ -59,7 +76,7 @@ code_aeternum_web/
 | **HTML**       | Semántico, una sola `<h1>` por página. Header/nav/footer repetidos en cada HTML (sin templating). |
 | **CSS**        | Variables en `:root` en `style.css`. Paleta: `--bg-dark`, `--primary` (cobre/bronce), `--accent` (teal), `--text-main`, `--text-muted`. Fuentes: Outfit (sans), Cormorant Garamond (serif títulos). |
 | **JS**         | `js/reveal.js`: IntersectionObserver para elementos `.reveal` (scroll reveal). Cargado en home EN/ES. |
-| **Cache bust** | Query string en CSS: `?v=2.0`, `?v=2.1`. Incrementar al cambiar estilos. |
+| **Cache bust** | Query string en CSS/JS: convención actual `?v=3.0` (antes divergía entre 1.0–2.2). Incrementar al cambiar estilos o scripts — ver `RELEASES.md`. |
 
 ---
 
@@ -69,22 +86,27 @@ code_aeternum_web/
 - **CTA “Install” (Chrome Web Store):** Mientras no exista URL de la extensión en la store, el botón principal en TG Grabber Pro apunta a la descarga ZIP; el de “Chrome Web Store” puede ser secundario o “Coming soon” para no tener `href="#"`.
 - **Footer:** Enlaces a productos en el footer llevan a sus páginas (`tg-grabber-pro.html`, `commanddock.html`) y no a `#`.
 - **Clase `.x-btn`:** Definida en `product.css` para el botón “Follow us” / X (Twitter) en secciones de soporte, coherente con `.kofi-btn` y `.github-btn`.
-- **Documentación:** `AUDITORIA_PROYECTO.md` para hallazgos y checklist; `GEMINI.md` para contexto persistente (IA y humanos).
+- **Documentación:** auditorías históricas en `docs/audits/` (snapshots mar-2026); `PLAN_MEJORAS.md` es el estado actual; `GEMINI.md` para contexto persistente (IA y humanos).
 
 ---
 
 ## 5. Enlaces y rutas importantes
 
 - **Home EN:** `index.html`. Home ES: `es/index.html`.
-- **Productos:** `tg-grabber-pro.html`, `commanddock.html` (y `es/`).
-- **Legal:** `terms.html`, `privacy.html`, `refund-policy.html` (solo EN por ahora; ES opcional más adelante).
-- **Externos:** mailto:codeaeternum@outlook.com, Ko-fi, GitHub (org y repo CommandDock), X @CodeAeternum.
+- **Productos:** `vunari.html`, `tg-grabber-pro.html`, `commanddock.html`, `freshtrack.html` (y `es/` para las tres primeras).
+- **Legal:** `terms.html`, `privacy.html`, `refund-policy.html` (solo EN por ahora; ES opcional más adelante). FreshTrack tiene `freshtrack-privacy.html` propia; Blackjack & Poker Lab usa `blackjack-poker-lab/{privacy,terms,support}/`.
+- **Externos:** mailto:soporte@codeaeternum.com, Ko-fi, GitHub (org y repo CommandDock), X @CodeAeternum.
 - **TG Media Grabber Pro — Chrome Web Store:** `https://chromewebstore.google.com/detail/tg-media-grabber-pro/opbopilodjdiblbohlkffmmgijafcigf` (usar con `target="_blank"` y `rel="noopener noreferrer"`).
-- **Descarga TG Grabber Pro (ZIP / sideload):** `downloads/tg-media-grabber-pro.zip`.
+- **Descargas de apps:** binarios (EXE/DMG) en **GitHub Releases**, nunca en `downloads/` (ignorados por `.gitignore`). FreshTrack se actualiza vía `freshtrack-mac-version.json` — checklist en `RELEASES.md`.
 
 ---
 
 ## 6. Mejoras aplicadas (post-auditoría, marzo 2026)
+
+> Registro histórico de la auditoría mar-2026. Nota: el "Download ZIP (Sideload)"
+> de TG Grabber Pro mencionado abajo ya no se distribuye — el ZIP nunca se
+> commiteó y `downloads/` está vacío; las descargas van por Chrome Web Store /
+> GitHub Releases. El estado vigente del proyecto está en `PLAN_MEJORAS.md`.
 
 - **Anclas:** Todos los enlaces a la sección de productos usan `#products` (index, es/index, terms, privacy, refund-policy, tg-grabber-pro EN/ES).
 - **Footer:** Enlaces a “TG Media Grabber Pro” y “CommandDock” en el footer apuntan a `tg-grabber-pro.html` y `commanddock.html` (no `#`).
@@ -121,9 +143,11 @@ code_aeternum_web/
 
 ## 7. Mejoras pendientes (referencia)
 
-Ver checklist en `AUDITORIA_PROYECTO.md`. Resumen corto:
+Ver el roadmap por fases en `PLAN_MEJORAS.md` (documento vivo). Resumen corto:
 
-- **Pendiente (opcional):** Imagen og dedicada 1200×630 en `img/og-image.png` y actualizar `og:image`; versiones ES de terms/privacy/refund si se desea.
+- **`img/og-image.png` 1200×630 ya existe** (generada en la iteración de infra); falta que las páginas actualicen su `og:image` para usarla.
+- Versiones ES de terms/privacy/refund y de `freshtrack.html` pendientes.
+- Release real del DMG de FreshTrack + `downloadUrl` en `freshtrack-mac-version.json` (checklist en `RELEASES.md`).
 
 ---
 
@@ -131,4 +155,4 @@ Ver checklist en `AUDITORIA_PROYECTO.md`. Resumen corto:
 
 - **Para desarrolladores/IA:** Leer al inicio de una sesión para conocer estructura, convenciones y decisiones.
 - **Actualizar** cuando se añadan páginas, productos, idiomas o se cambien convenciones (por ejemplo anclas, rutas o nombres de clases).
-- No reemplaza la auditoría: `AUDITORIA_PROYECTO.md` tiene el detalle de hallazgos y acciones; `GEMINI.md` tiene el “estado del mundo” y las reglas de juego.
+- No reemplaza el plan: `PLAN_MEJORAS.md` tiene el estado actual y el roadmap; las auditorías históricas están en `docs/audits/`; `GEMINI.md` tiene el “estado del mundo” y las reglas de juego.

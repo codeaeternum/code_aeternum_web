@@ -1,5 +1,7 @@
 # Auditoría completa — Code Aeternum Web
 
+> ⚠️ SNAPSHOT HISTÓRICO (mar-2026) — superseded por `PLAN_MEJORAS.md` en la raíz.
+
 **Fecha:** 3 de marzo de 2026  
 **Alcance:** Frontend (HTML/CSS/UX), consistencia, accesibilidad, SEO, mantenibilidad.  
 **Nota:** El proyecto es 100% estático (sin backend); la auditoría se centra en lo existente.
