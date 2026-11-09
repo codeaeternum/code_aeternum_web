@@ -426,7 +426,7 @@ main>.product-section:first-child {
     margin-bottom: 0.5rem;
 }
 
-.product-section a {
+.product-section a:not(.cta-button):not(.cta-secondary) {
     color: var(--primary-light);
 }
 
