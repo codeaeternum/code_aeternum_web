@@ -84,9 +84,7 @@
 
 /* Release Badges */
 .release-badge {
-    display: inline-block;
     padding: 0.25rem 0.8rem;
-    border-radius: 50px;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -114,7 +112,7 @@
 .release-body {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     padding: 1.5rem 2rem;
     transition: border-color 0.3s;
 }

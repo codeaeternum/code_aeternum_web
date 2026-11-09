@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Rules the site does not meet yet are set to "warn" in .htmlvalidate.json;
+      # tighten them as the HTML is fixed.
+      - name: Validate HTML
+        run: npx --yes html-validate@latest "**/*.html"
+
+      # Internal links only: linkinator serves the repo over localhost, so
+      # anything http(s) that is NOT localhost is external (fragile in CI) and
+      # skipped. Every tracked HTML file is a crawl root so orphan pages
+      # (unlinked but deployed) get their links checked too.
+      - name: Check internal links
+        run: >
+          npx --yes linkinator@latest
+          $(git ls-files '*.html' | tr '\n' ' ')
+          --recurse
+          --skip "^https?://(?!localhost)(?!127\.0\.0\.1)"
+          --skip "^mailto:"
+          --skip "^tel:"

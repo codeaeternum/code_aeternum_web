@@ -1,9 +1,8 @@
 /* Code Aeternum — Premium Design System */
 /* Palette inspired by the column+circuit logo: slate teal + copper/bronze */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
-
 :root {
+    color-scheme: dark;
     --bg-dark: #0b0d10;
     --bg-card: #12151a;
     --bg-card-hover: #181c24;
@@ -20,8 +19,12 @@
     --code-bg: rgba(255, 255, 255, 0.1);
     --border: #1e2228;
     --border-hover: #2a3040;
+    --border-visible: rgba(255, 255, 255, 0.18);
+    --radius-pill: 50px;
+    --radius-card: 16px;
+    --radius-lg: 24px;
+    --radius-sm: 8px;
     --gradient: linear-gradient(135deg, #c9956b 0%, #b87333 50%, #ddb892 100%);
-    --gradient-accent: linear-gradient(135deg, #5a7a8a 0%, #7ba3b5 100%);
     --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(201, 149, 107, 0.08) 0%, transparent 60%),
         radial-gradient(ellipse at 80% 50%, rgba(90, 122, 138, 0.06) 0%, transparent 50%);
 }
@@ -42,6 +45,7 @@ body {
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-x: clip;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
 }
@@ -56,7 +60,7 @@ body {
     color: #1a1a1a;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     z-index: 9999;
     transition: left 0.2s;
 }
@@ -74,10 +78,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.accent-text {
-    color: var(--accent-light);
-}
-
 .link-primary {
     color: var(--primary-light);
     text-decoration: none;
@@ -88,19 +88,30 @@ body {
     text-decoration: underline;
 }
 
-/* ─── Animations ─── */
-@keyframes fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Shared badge shell — variants add their own colors below */
+.hero-badge,
+.featured-badge,
+.product-badge,
+.release-badge {
+    display: inline-block;
+    border-radius: var(--radius-pill);
 }
 
+/* Base styles for bare elements used across pages */
+code {
+    background: var(--code-bg, rgba(255, 255, 255, 0.08));
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+}
+
+/* ─── Animations ─── */
 @keyframes float {
 
     0%,
@@ -110,28 +121,6 @@ body {
 
     50% {
         transform: translateY(-10px);
-    }
-}
-
-@keyframes pulse-glow {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px var(--primary-glow);
-    }
-
-    50% {
-        box-shadow: 0 0 40px var(--primary-glow), 0 0 80px rgba(201, 149, 107, 0.1);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% center;
-    }
-
-    100% {
-        background-position: 200% center;
     }
 }
 
@@ -147,8 +136,7 @@ body {
 }
 
 /* No-JS fallback: show .reveal content if script fails or is disabled */
-.no-js .reveal,
-html.no-script .reveal {
+.no-js .reveal {
     opacity: 1;
     transform: none;
 }
@@ -206,7 +194,7 @@ header {
 }
 
 .logo img {
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     transition: transform 0.3s;
 }
 
@@ -249,6 +237,14 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* Global visible focus indicator (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 nav a:focus-visible,
 .cta-button:focus-visible,
 .support-btn:focus-visible,
@@ -261,7 +257,6 @@ nav a:focus-visible,
 a,
 button {
     -webkit-tap-highlight-color: rgba(201, 149, 107, 0.2);
-    tap-highlight-color: rgba(201, 149, 107, 0.2);
 }
 
 .lang-switch {
@@ -269,7 +264,7 @@ button {
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
-    transition: all 0.3s;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .lang-switch:hover {
@@ -297,6 +292,12 @@ nav a[aria-label]:hover {
 
 nav a[aria-label]::after {
     display: none;
+}
+
+/* Normalize social icon size (HTML also ships width/height attrs) */
+nav a[aria-label] svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* ─── Hero ─── */
@@ -356,15 +357,17 @@ nav a[aria-label]::after {
     animation-delay: 0.55s;
 }
 
-
+/* 404 page hero variant — keeps .hero look, taller offset under fixed header */
+.error-hero {
+    padding-top: 9rem;
+    min-height: 60vh;
+}
 
 .hero-badge {
-    display: inline-block;
     background: rgba(201, 149, 107, 0.1);
     border: 1px solid rgba(201, 149, 107, 0.2);
     color: var(--primary-light);
     padding: 0.35rem 1.2rem;
-    border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 1.5px;
@@ -379,10 +382,6 @@ nav a[aria-label]::after {
     line-height: 1.15;
     margin-bottom: 1.5rem;
     color: #fff;
-}
-
-.hero h1 br {
-    display: block;
 }
 
 .hero p {
@@ -402,9 +401,9 @@ nav a[aria-label]::after {
     min-height: 44px;
     padding: 0.9rem 2.2rem;
     background: var(--gradient);
-    color: #1a1a1a;
+    color: #141414;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     font-weight: 600;
     font-size: 0.95rem;
     transition: transform 0.25s, box-shadow 0.25s;
@@ -418,9 +417,16 @@ nav a[aria-label]::after {
     box-shadow: 0 0 40px var(--primary-glow);
 }
 
+/* Pressed state feedback on interactive cards/buttons */
+.cta-button:active,
+.support-btn:active,
+.download-card:active {
+    transform: translateY(0) scale(0.98);
+}
+
 .cta-secondary {
-    background: transparent;
-    border: 1px solid var(--border);
+    background: var(--bg-card);
+    border: 1px solid var(--border-visible);
     color: var(--text-main);
     box-shadow: none;
 }
@@ -460,7 +466,7 @@ nav a[aria-label]::after {
     align-items: center;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     padding: 3rem;
     transition: border-color 0.3s;
 }
@@ -488,12 +494,10 @@ nav a[aria-label]::after {
 }
 
 .featured-badge {
-    display: inline-block;
     background: rgba(90, 122, 138, 0.15);
     border: 1px solid rgba(90, 122, 138, 0.25);
     color: var(--accent-light);
     padding: 0.3rem 1rem;
-    border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -576,13 +580,23 @@ nav a[aria-label]::after {
     background: rgba(18, 21, 26, 0.5);
 }
 
-.marquée-track,
 .marquee-track {
     display: flex;
     gap: 3rem;
     animation: scroll-x 30s linear infinite;
     width: max-content;
     will-change: transform;
+}
+
+/* Pause on hover/focus (WCAG 2.2.2) */
+.marquee-track:hover,
+.marquee-track:focus-within {
+    animation-play-state: paused;
+}
+
+/* Duplicated track for the seamless loop — children join the flex flow */
+.marquee-duplicate {
+    display: contents;
 }
 
 .marquee-item {
@@ -622,7 +636,6 @@ nav a[aria-label]::after {
         transition-duration: 0.01ms !important;
     }
 
-    .marquée-track,
     .marquee-track {
         animation: none;
         will-change: auto;
@@ -666,7 +679,7 @@ nav a[aria-label]::after {
 .value-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     padding: 2rem 1.5rem;
     text-align: left;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -739,7 +752,7 @@ nav a[aria-label]::after {
     gap: 0.5rem;
     min-height: 44px;
     padding: 0.75rem 1.6rem;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -752,7 +765,7 @@ nav a[aria-label]::after {
 
 .kofi-btn {
     background: linear-gradient(135deg, #ff5e5b, #ff7b54);
-    color: #fff;
+    color: #1a1a1a;
     box-shadow: 0 0 20px rgba(255, 94, 91, 0.25);
 }
 
@@ -760,23 +773,14 @@ nav a[aria-label]::after {
     box-shadow: 0 0 40px rgba(255, 94, 91, 0.35);
 }
 
-.github-btn {
-    background: var(--bg-card);
-    color: var(--text-main);
-    border: 1px solid var(--border);
-}
-
-.github-btn:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 20px rgba(90, 122, 138, 0.2);
-}
-
+.github-btn,
 .x-btn {
     background: var(--bg-card);
     color: var(--text-main);
     border: 1px solid var(--border);
 }
 
+.github-btn:hover,
 .x-btn:hover {
     border-color: var(--accent);
     box-shadow: 0 0 20px rgba(90, 122, 138, 0.2);
@@ -817,13 +821,24 @@ footer {
     font-weight: 600;
 }
 
+/* Vertical link list; 24px min target height (SC 2.5.8), text centered */
 .footer-col a {
-    display: block;
+    display: flex;
+    align-items: center;
+    min-height: 24px;
     color: var(--text-muted);
     text-decoration: none;
     margin-bottom: 0.5rem;
     font-size: 0.88rem;
     transition: color 0.3s;
+}
+
+.footer-col:nth-child(2) a {
+    justify-content: center;
+}
+
+.footer-col:nth-child(3) a {
+    justify-content: flex-end;
 }
 
 .footer-col a:hover {
@@ -912,16 +927,30 @@ footer {
         justify-self: center;
     }
 
-    .footer-col a {
+    /* Keep the vertical list (flex, not inline-flex) and center text */
+    .footer-col a,
+    .footer-col:nth-child(2) a,
+    .footer-col:nth-child(3) a {
         min-height: 44px;
         padding: 0.35rem 0;
-        display: inline-flex;
-        align-items: center;
+        justify-content: center;
     }
 
     .support-btns {
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    /* Header becomes sticky on mobile — less top clearance needed */
+    .legal-content {
+        padding-top: 4rem;
+    }
+}
+
+/* Intermediate breakpoint: 3-col grids go to 2 cols before collapsing to 1 */
+@media (max-width: 768px) and (min-width: 521px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -948,9 +977,15 @@ footer {
 /* ─── Legal Pages ─── */
 .legal-content {
     max-width: 800px;
-    margin: 4rem auto;
+    margin: 0 auto;
+    padding: 8rem 5% 4rem;
     padding-left: max(5%, env(safe-area-inset-left));
     padding-right: max(5%, env(safe-area-inset-right));
+}
+
+/* Anchored sections clear the fixed header when scrolled to */
+[id] {
+    scroll-margin-top: 7rem;
 }
 
 .legal-content h1 {
