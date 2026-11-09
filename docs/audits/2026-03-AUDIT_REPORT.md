@@ -1,8 +1,10 @@
 # Auditoría de calidad — Code Aeternum Web
 
+> ⚠️ SNAPSHOT HISTÓRICO (mar-2026) — superseded por `PLAN_MEJORAS.md` en la raíz.
+
 **Fecha:** 3 de marzo de 2026  
 **Tipo:** /audit — Accesibilidad, rendimiento, sistema de diseño, responsivo.  
-**Referencia:** [COMANDOS_IMPECCABLE.md](COMANDOS_IMPECCABLE.md)
+**Referencia:** [COMANDOS_IMPECCABLE.md](../../COMANDOS_IMPECCABLE.md)
 
 ---
 
