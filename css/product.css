@@ -40,24 +40,25 @@
 }
 
 .product-badge {
-    display: inline-block;
     background: rgba(201, 149, 107, 0.12);
     border: 1px solid rgba(201, 149, 107, 0.25);
     color: var(--primary-light);
     padding: 0.4rem 1.2rem;
-    border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 2rem;
     letter-spacing: 0.5px;
 }
 
+/* Overflow robustness: title wraps instead of overflowing */
 .product-hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: #fff;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .product-tagline {
@@ -69,13 +70,15 @@
     overflow-wrap: break-word;
 }
 
-/* Overflow robustness: product hero title and code blocks */
-.product-hero h1 {
-    overflow-wrap: break-word;
-    word-break: break-word;
+.code-inline {
+    overflow-x: auto;
+    max-width: 100%;
+    background: var(--code-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
 }
 
-.code-inline,
 pre {
     overflow-x: auto;
     max-width: 100%;
@@ -91,9 +94,8 @@ pre {
 }
 
 .hero-note {
-    color: var(--text-muted);
+    color: #a6adb6;
     font-size: 0.85rem;
-    opacity: 0.7;
 }
 
 /* Promo Screenshot */
@@ -106,7 +108,7 @@ pre {
 
 .promo-screenshot img {
     width: 100%;
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     box-shadow: 0 8px 48px rgba(201, 149, 107, 0.15),
         0 0 0 1px rgba(201, 149, 107, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -135,7 +137,7 @@ pre {
 .feature-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     padding: 2rem 1.5rem;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
@@ -194,7 +196,7 @@ pre {
     justify-content: center;
     font-size: 1.3rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #141414;
     margin: 0 auto 1.2rem;
     box-shadow: 0 0 24px var(--primary-glow);
 }
@@ -240,19 +242,13 @@ pre {
     flex-wrap: nowrap;
 }
 
-/* Coming soon CTA (non-link, visual only) */
-.cta-coming-soon {
-    opacity: 0.75;
-    cursor: default;
-    pointer-events: none;
-}
-
 /* Downloads Section */
 .downloads-section {
     text-align: center;
     padding: 5rem 5%;
     max-width: 1100px;
     margin: 0 auto;
+    scroll-margin-top: 7rem;
 }
 
 .downloads-subtitle {
@@ -271,7 +267,7 @@ pre {
 .download-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     padding: 2rem 1.5rem;
     text-align: center;
     text-decoration: none;
@@ -311,11 +307,11 @@ pre {
     display: inline-block;
     margin-top: 0.8rem;
     background: var(--gradient);
-    color: #1a1a1a;
+    color: #141414;
     font-weight: 700;
     font-size: 0.85rem;
     padding: 0.5rem 1.8rem;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     transition: box-shadow 0.3s, transform 0.2s;
 }
 
@@ -325,9 +321,8 @@ pre {
 }
 
 .downloads-note {
-    color: var(--text-muted);
+    color: #a6adb6;
     font-size: 0.85rem;
-    opacity: 0.7;
 }
 
 /* Manual install section (sistema de diseño) */
@@ -358,13 +353,6 @@ pre {
     color: var(--primary);
 }
 
-.code-inline {
-    background: var(--code-bg);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.9em;
-}
-
 /* Icon inside CTA (evitar inline) */
 .cta-button svg,
 .cta-secondary svg {
@@ -381,7 +369,7 @@ pre {
 }
 
 .bottom-cta img {
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     margin-bottom: 1.5rem;
 }
 
@@ -399,6 +387,52 @@ pre {
     color: var(--text-muted);
     margin-bottom: 2.5rem;
     font-size: 1.05rem;
+}
+
+/* Generic content sections (FreshTrack page + privacy) */
+.product-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 5%;
+}
+
+/* First section right after the fixed header needs extra clearance */
+main>.product-section:first-child {
+    padding-top: 8rem;
+}
+
+.product-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-heading);
+}
+
+.product-section h2 {
+    margin: 0 0 1rem;
+}
+
+.product-section p {
+    margin-bottom: 1rem;
+    color: var(--text-body, var(--text-main));
+}
+
+.product-section ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-section li {
+    margin-bottom: 0.5rem;
+}
+
+.product-section a {
+    color: var(--primary-light);
+}
+
+.fineprint {
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 /* Responsive */
@@ -436,6 +470,19 @@ pre {
 
     .support-actions {
         flex-wrap: wrap;
+    }
+
+    /* Header becomes sticky on mobile — less top clearance needed */
+    main>.product-section:first-child {
+        padding-top: 4rem;
+    }
+}
+
+/* Intermediate breakpoint: 3-col grids go to 2 cols before collapsing to 1 */
+@media (max-width: 768px) and (min-width: 521px) {
+    .features-grid,
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
